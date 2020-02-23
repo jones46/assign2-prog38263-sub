@@ -8,7 +8,7 @@
 ?>
       <li class="nav-item">
       <?php
-        if($_SESSION['userrole'] == 'admin') {
+        if(strcmp($_SESSION['userrole'], "admin")==0) {
       ?>
         <a class="nav-link" href="/admin.php">Admin</a>
         <?php } else { ?>
@@ -22,7 +22,7 @@
 <?php
 	if ($_SESSION['authenticated']) {
 ?>
-<a href="/logout.php"><span class="navbar-text">Logout <?php echo $_SESSION['username'] ?></a>
+<a href="/logout.php"><span class="navbar-text"><?php echo $_SESSION['username'] ?>&nbsp;Logout</a>
 </span>
 <?php
 	}

@@ -7,8 +7,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$_SESSION['username'] = $_POST['username'];
 		$_SESSION['authenticated'] = True;
     $_SESSION['id'] = pg_fetch_array($result)['id'];
-    $_SESSION['userrole'] = pg_fetch_array($result)['role'];
-    if($_SESSION['userrole'] == 'admin') {
+    $_SESSION['userrole'] = pg_fetch_array($result,0)['role'];
+    if(strcmp($_SESSION['userrole'], "admin")==0) {
 		  //Redirect to admin area
       header("Location: /admin.php");
     }
