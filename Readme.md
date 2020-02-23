@@ -50,7 +50,7 @@ For the web application provided, I tested for the following known vulnerabiliti
 
 ![Screen recording for deleting article without login](images/deletearticlewithoutlogin.gif)
 
-- **Impact:**
+- **Impact:** Both student and admin user logged into the same page
 
 - **Mitigation:** Security Control
 
