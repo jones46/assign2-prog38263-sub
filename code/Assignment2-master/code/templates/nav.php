@@ -7,7 +7,13 @@
 	if ($_SESSION['authenticated']) {
 ?>
       <li class="nav-item">
+      <?php
+        if($_SESSION['userrole'] == 'admin') {
+      ?>
         <a class="nav-link" href="/admin.php">Admin</a>
+        <?php } else { ?>
+        <a class="nav-link" href="/studenthome.php">Student</a>
+        <?php } ?>
       </li>
 <?php
 	}

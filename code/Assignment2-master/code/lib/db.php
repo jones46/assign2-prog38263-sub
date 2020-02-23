@@ -40,6 +40,25 @@ function get_article_list($dbconn){
 return run_query($dbconn, $query);
 }
 
+//student articles
+function get_article_list_byauthor($dbconn, $username){
+	$query= 
+		"SELECT 
+		articles.created_on as date,
+		articles.aid as aid,
+		articles.title as title,
+		authors.username as author,
+		articles.stub as stub
+		FROM
+		articles
+		INNER JOIN
+		authors ON articles.author=authors.id
+		AND authors.username = '".$username."'
+		ORDER BY
+		date DESC";
+return run_query($dbconn, $query);
+}
+
 function get_article($dbconn, $aid) {
 	//TODO: replace with prepared statement or PDO
 	$query= 
