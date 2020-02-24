@@ -56,23 +56,38 @@ For the web application provided, I tested for the following known vulnerabiliti
 
 ## Insecure password handling and storage
 
-- **Identification:**
+- **Identification & Execution:** The above sql injection attack video also demonnstartes insecure password handling as it revealed both username and password to attacker in plain text.
 
-- **Execution:**
+- **Impact:** High impact and will expose admin previlages to an attacker.
 
-- **Impact:**
-
-- **Mitigation:**
+- **Mitigation:** We can mitigate this attack by encrpyting passwords on database by defualt. If the password were encrypted the attack would only give a hashcode of password.
 
 ## CSRF
 
-- **Identification:**
+- **Identification & Execution:** When the sql injection attack was succesful and compromised a user. The attacker can act as that user and insert a new article with malicous code that will in turn execute a reflected csrf attack with an action form, when other users read the article or visit website the action form would change visited user password and logs the information to attacker's server.
 
-- **Execution:**
+```html
+<html>
+  <body>
+    <form action="https://vulnerable-website.com/password/change" method="POST">
+      <input type="hidden" name="password" value="youarepwned" />
+      <input
+        type="hidden"
+        name="username"
+        value="<?php"
+        $_Session[username]
+      />/>
+    </form>
+    <script>
+      document.forms[0].submit();
+    </script>
+  </body>
+</html>
+```
 
-- **Impact:**
+- **Impact:** As it is a request forgery attack in which the attacker impersonates another legitimate user in targeting the victim website. Depending on the functionality provided by the web application that is being targeted, the impact can vary from annoyances to administrative control for the attacker but in our case in this code we could get admin login details.
 
-- **Mitigation:**
+- **Mitigation:** The most robust way to defend against CSRF attacks is to include a CSRF token within relevant requests. The token should be unpredictable with high entropy, linked to the user's session and strictly validated in every case before an action is executed.
 
 ## No security certificate (https)
 
