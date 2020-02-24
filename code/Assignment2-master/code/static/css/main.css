@@ -12,9 +12,9 @@ Base styles: opinionated defaults
 ========================================================================== */
 
 html {
-	color: #222;
-	font-size: 1em;
-	line-height: 1.4;
+  color: #222;
+  font-size: 1em;
+  line-height: 1.4;
 }
 
 /*
@@ -28,13 +28,13 @@ html {
  */
 
 ::-moz-selection {
-	background: #b3d4fc;
-	text-shadow: none;
+  background: #b3d4fc;
+  text-shadow: none;
 }
 
 ::selection {
-	background: #b3d4fc;
-	text-shadow: none;
+  background: #b3d4fc;
+  text-shadow: none;
 }
 
 /*
@@ -42,12 +42,12 @@ html {
  */
 
 hr {
-	display: block;
-	height: 1px;
-	border: 0;
-	border-top: 1px solid #ccc;
-	margin: 1em 0;
-	padding: 0;
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
 }
 
 /*
@@ -62,7 +62,7 @@ iframe,
 img,
 svg,
 video {
-	vertical-align: middle;
+  vertical-align: middle;
 }
 
 /*
@@ -70,9 +70,9 @@ video {
  */
 
 fieldset {
-	border: 0;
-	margin: 0;
-	padding: 0;
+  border: 0;
+  margin: 0;
+  padding: 0;
 }
 
 /*
@@ -80,7 +80,7 @@ fieldset {
  */
 
 textarea {
-	resize: vertical;
+  resize: vertical;
 }
 
 /* ==========================================================================
@@ -88,10 +88,10 @@ Browser Upgrade Prompt
 ========================================================================== */
 
 .browserupgrade {
-	margin: 0.2em 0;
-	background: #ccc;
-	color: #000;
-	padding: 0.2em 0;
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
 }
 
 /* ==========================================================================
@@ -107,7 +107,7 @@ Helper classes
  */
 
 .hidden {
-	display: none !important;
+  display: none !important;
 }
 
 /*
@@ -120,16 +120,16 @@ Helper classes
  */
 
 .sr-only {
-	border: 0;
-	clip: rect(0, 0, 0, 0);
-	height: 1px;
-	margin: -1px;
-	overflow: hidden;
-	padding: 0;
-	position: absolute;
-	white-space: nowrap;
-	width: 1px;
-	/* 1 */
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  /* 1 */
 }
 
 /*
@@ -140,13 +140,13 @@ Helper classes
 
 .sr-only.focusable:active,
 .sr-only.focusable:focus {
-	clip: auto;
-	height: auto;
-	margin: 0;
-	overflow: visible;
-	position: static;
-	white-space: inherit;
-	width: auto;
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  white-space: inherit;
+  width: auto;
 }
 
 /*
@@ -154,7 +154,7 @@ Helper classes
  */
 
 .invisible {
-	visibility: hidden;
+  visibility: hidden;
 }
 
 /*
@@ -171,14 +171,14 @@ Helper classes
 
 .clearfix:before,
 .clearfix:after {
-	content: " ";
-	/* 1 */
-	display: table;
-	/* 2 */
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
 }
 
 .clearfix:after {
-	clear: both;
+  clear: both;
 }
 
 /* ==========================================================================
@@ -188,14 +188,14 @@ Modify as content requires.
 ========================================================================== */
 
 @media only screen and (min-width: 35em) {
-	/* Style adjustments for viewports that meet the condition */
+  /* Style adjustments for viewports that meet the condition */
 }
 
 @media print,
-(-webkit-min-device-pixel-ratio: 1.25),
-(min-resolution: 1.25dppx),
-(min-resolution: 120dpi) {
-	/* Style adjustments for high resolution devices */
+  (-webkit-min-device-pixel-ratio: 1.25),
+  (min-resolution: 1.25dppx),
+  (min-resolution: 120dpi) {
+  /* Style adjustments for high resolution devices */
 }
 
 /* ==========================================================================
@@ -205,166 +205,182 @@ https://www.phpied.com/delay-loading-your-print-css/
 ========================================================================== */
 
 @media print {
-	*,
-	*:before,
-	*:after {
-		background: transparent !important;
-		color: #000 !important;
-		/* Black prints faster */
-		box-shadow: none !important;
-		text-shadow: none !important;
-	}
-	a,
-	a:visited {
-		text-decoration: underline;
-	}
-	a[href]:after {
-		content: " (" attr(href) ")";
-	}
-	abbr[title]:after {
-		content: " (" attr(title) ")";
-	}
-	/*
+  *,
+  *:before,
+  *:after {
+    background: transparent !important;
+    color: #000 !important;
+    /* Black prints faster */
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+  /*
 	 * Don't show links that are fragment identifiers,
 	 * or use the `javascript:` pseudo protocol
 	 */
-a[href^="#"]:after,
-a[href^="javascript:"]:after {
-	content: "";
-}
-pre {
-	white-space: pre-wrap !important;
-}
-pre,
-blockquote {
-	border: 1px solid #999;
-	page-break-inside: avoid;
-}
-/*
+  a[href^="#"]:after,
+  a[href^="javascript:"]:after {
+    content: "";
+  }
+  pre {
+    white-space: pre-wrap !important;
+  }
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+  /*
  * Printing Tables:
  * https://web.archive.org/web/20180815150934/http://css-discuss.incutio.com/wiki/Printing_Tables
  */
-thead {
-	display: table-header-group;
-}
-tr,
-img {
-	page-break-inside: avoid;
-}
-p,
-h2,
-h3 {
-	orphans: 3;
-	widows: 3;
-}
-h2,
-h3 {
-	page-break-after: avoid;
-}
+  thead {
+    display: table-header-group;
+  }
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
 }
 /* stylelint-disable selector-list-comma-newline-after */
 
 .blog-header {
-	line-height: 1;
-	border-bottom: 1px solid #e5e5e5;
+  line-height: 1;
+  border-bottom: 1px solid #e5e5e5;
 }
 
 .blog-header-logo {
-	font-family: "Playfair Display", Georgia, "Times New Roman", serif;
-	font-size: 2.25rem;
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  font-size: 2.25rem;
 }
 
 .blog-header-logo:hover {
-	text-decoration: none;
+  text-decoration: none;
 }
 
-h1, h2, h3, h4, h5, h6 {
-	font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
 }
 
 .display-4 {
-	font-size: 2.5rem;
+  font-size: 2.5rem;
 }
 @media (min-width: 768px) {
-	.display-4 {
-		font-size: 3rem;
-	}
+  .display-4 {
+    font-size: 3rem;
+  }
 }
 
 .nav-scroller {
-	position: relative;
-	z-index: 2;
-	height: 2.75rem;
-	overflow-y: hidden;
+  position: relative;
+  z-index: 2;
+  height: 2.75rem;
+  overflow-y: hidden;
 }
 
 .nav-scroller .nav {
-	display: -ms-flexbox;
-	display: flex;
-	-ms-flex-wrap: nowrap;
-	flex-wrap: nowrap;
-	padding-bottom: 1rem;
-	margin-top: -1px;
-	overflow-x: auto;
-	text-align: center;
-	white-space: nowrap;
-	-webkit-overflow-scrolling: touch;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  padding-bottom: 1rem;
+  margin-top: -1px;
+  overflow-x: auto;
+  text-align: center;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
 }
 
 .nav-scroller .nav-link {
-	padding-top: .75rem;
-	padding-bottom: .75rem;
-	font-size: .875rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  font-size: 0.875rem;
 }
 
 .card-img-right {
-	height: 100%;
-	border-radius: 0 3px 3px 0;
+  height: 100%;
+  border-radius: 0 3px 3px 0;
 }
 
 .flex-auto {
-	-ms-flex: 0 0 auto;
-	flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
 }
 
-.h-250 { height: 250px; }
+.h-250 {
+  height: 250px;
+}
 @media (min-width: 768px) {
-	.h-md-250 { height: 250px; }
+  .h-md-250 {
+    height: 250px;
+  }
 }
 
 /* Pagination */
 .blog-pagination {
-	margin-bottom: 4rem;
+  margin-bottom: 4rem;
 }
 .blog-pagination > .btn {
-	border-radius: 2rem;
+  border-radius: 2rem;
 }
 
 /*
  *  * Blog posts
  *   */
 .blog-post {
-	margin-bottom: 4rem;
+  margin-bottom: 4rem;
 }
 .blog-post-title {
-	margin-bottom: .25rem;
-	font-size: 2.5rem;
+  margin-bottom: 0.25rem;
+  font-size: 2.5rem;
 }
 .blog-post-meta {
-	margin-bottom: 1.25rem;
-	color: #999;
+  margin-bottom: 1.25rem;
+  color: #999;
 }
 
 /*
  *  * Footer
  *   */
 .blog-footer {
-	padding: 2.5rem 0;
-	color: #999;
-	text-align: center;
-	background-color: #f9f9f9;
-	border-top: .05rem solid #e5e5e5;
+  padding: 2.5rem 0;
+  color: #999;
+  text-align: center;
+  background-color: #f9f9f9;
+  border-top: 0.05rem solid #e5e5e5;
 }
 .blog-footer p:last-child {
-	margin-bottom: 0;
+  margin-bottom: 0;
+}
+
+/*
+* * front user error messages class
+*	*/
+.error-msg {
+  color: red;
 }

@@ -44,58 +44,54 @@ For the web application provided, I tested for the following known vulnerabiliti
 
 ## Broken Access Control
 
-- **Identification:** For finding this
+- **Identification:** To check if this vunerability exists on this code base, I tried to access various pages without logging in as either student or admin.
 
-- **Execution:**
+- **Execution:** I identified that i could access deletearticle when passed with valid aid parameter executes the sql command without checking if user is logged in or not.
 
 ![Screen recording for deleting article without login](images/deletearticlewithoutlogin.gif)
 
-- **Impact:**
+- **Impact:** Attackers can act as users or administrators using privileged functions can delete every record. The business impact depends on the protection needs of the application and data.
 
-- **Mitigation:** Security Control
+- **Mitigation:** Access control can be only effective if enforced in trusted server-side code or server-less API, where the attacker cannot modify the access control check or metadata.
 
 ## Insecure password handling and storage
 
-- **Identification:** For finding this
+- **Identification:**
 
 - **Execution:**
 
 - **Impact:**
 
-- **Mitigation:** Security Control
+- **Mitigation:**
 
 ## CSRF
 
-- **Identification:** For finding this
+- **Identification:**
 
 - **Execution:**
 
 - **Impact:**
 
--**Mitigation:** Security Control
+- **Mitigation:**
 
 ## No security certificate (https)
 
-- **Identification:** For finding this
-
-- **Execution:**
+- **Identification & Execution:** Using _Wireshark, Aircrack-ng_ tool suite, i could sniff the traffic from vm to the container and accesspoint to find authencation packets.
 
 ![Screen capture login page](images/httplogin.png)
 
-- **Impact:**
+- **Impact:** Man in middle attacks can happen and attackers can sniff data, which can compromise user credential and other personal information.
 
-- **Mitigation:** Security Control
+- **Mitigation:** In real projects enforcing https and using a valid ca certificate for the application and all the plugins used, here in our case i could make a self-assigned secure certificate for nginx conatiner.
 
 ## Only default logs
 
-- **Identification:** For finding this
-
-- **Execution:**
+- **Identification & Execution:** Exposing default logs when user enters incorrect data as shown in below figures might help attackers.
 
 ![Screen capture for default logs in bash](images/logscmdngnix1.png)
 
 ![Screen capture for default logs in browser](images/logscmdngnix2.png)
 
-- **Impact:**
+- **Impact:** Low impact, not having logs or having default logs makes it for attackers and general users to know more about the hosting server, compenents like databases, frameworks and raw code. Which might help advanced users to understand internal schematics of the application with less to no impact. But for naive users it would be hard to understand what went wrong.
 
-- **Mitigation:** Security Control
+- **Mitigation:** To mitigate this risk and to help developers to better understand errors, I used defualt php `error_log` function and also sent simple error message to end users.

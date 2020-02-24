@@ -1,5 +1,18 @@
 <?php include("templates/page_header.php");?>
 <?php
+//check if already logged user the redirect
+if(isset($_SESSION['username'])){
+  if(strcmp($_SESSION['userrole'], "admin")==0) {
+    //Redirect to admin area
+    header("Location: /admin.php");
+  }
+  else {
+    //redirect to student
+    header("Location: /studenthome.php");
+  }
+}
+
+$msg = ""; //login error message
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$result = authenticate_user($dbconn, $_POST['username'], $_POST['password']);
@@ -16,7 +29,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       //redirect to student
       header("Location: /studenthome.php");
     }
-	}	
+  }
+  else{
+    $msg = "Incorrect Username or Password";
+  }	
 }
 
 ?>
@@ -63,7 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <body>
 	<?php include("templates/nav.php"); ?>
 	<?php include("templates/contentstart.php"); ?>
-
+  <p class="error-msg"><?php echo $msg; ?></p>
 <form class="form-signin" action='#' method='POST'>
       <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
       <label for="inputUsername" class="sr-only">Username</label>
