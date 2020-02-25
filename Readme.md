@@ -95,6 +95,8 @@ For the web application provided, I tested for the following known vulnerabiliti
 
 - **Identification & Execution:** Using _Wireshark, Aircrack-ng_ tool suite, i could sniff the traffic from vm to the container and accesspoint to find authencation packets.
 
+![Screen capture packet capture](images/HTTPcapture.png)
+
 ![Screen capture login page](images/httplogin.png)
 
 - **Impact:** Man in middle attacks can happen and attackers can sniff data, which can compromise user credential and other personal information.
