@@ -2,14 +2,15 @@
 <?php
 //check if already logged user the redirect
 if(isset($_SESSION['username'])){
-  if(strcmp($_SESSION['userrole'], "admin")==0) {
+  if($_SESSION['userrole'] == "admin") {
     //Redirect to admin area
     header("Location: /admin.php");
   }
-  else {
+  elseif($_SESSION['userrole'] == "user") {
     //redirect to student
     header("Location: /studenthome.php");
   }
+  exit;
 }
 
 $msg = ""; //login error message

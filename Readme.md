@@ -50,6 +50,8 @@ For the web application provided, I tested for the following known vulnerabiliti
 
 ![Screen recording for deleting article without login](images/deletearticlewithoutlogin.gif)
 
+![Screen recording for editing article without login](images/anotherbrokenaccessvun.gif)
+
 - **Impact:** Attackers can act as users or administrators using privileged functions can delete every record. The business impact depends on the protection needs of the application and data.
 
 - **Mitigation:** Access control can be only effective if enforced in trusted server-side code or server-less API, where the attacker cannot modify the access control check or metadata.
