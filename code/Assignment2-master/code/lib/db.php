@@ -69,14 +69,12 @@ function get_article($dbconn, $aid) {
 		authors.username as author,
 		articles.stub as stub,
 		articles.content as content
-		FROM 
-		articles
+		FROM articles
 		INNER JOIN
 		authors ON articles.author=authors.id
-		WHERE
-		aid='".$aid."'
+		WHERE aid=$1
 		LIMIT 1";
-return run_query($dbconn, $query);
+return pg_query_params($dbconn,$query,array($aid));
 }
 
 function delete_article($dbconn, $aid) {
@@ -126,5 +124,13 @@ function authenticate_user($dbconn, $username, $password) {
 		password='".$_POST['password']."'
 		LIMIT 1";
 	return run_query($dbconn, $query);
-}	
+}
+
+function checkauthor($dbconn,$aid) {
+	$query = 'SELECT authors.username as author FROM articles INNER JOIN
+				authors ON articles.author=authors.id WHERE aid=$1';
+	$result = pg_query_params($dbconn,$query,array($aid));
+	//return author name
+	return 	pg_fetch_array($result, 0)['author'];
+}
 ?>

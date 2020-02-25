@@ -10,8 +10,22 @@ if($_SERVER['REQUEST_METHOD'] == 'GET') {
 	$title = $_POST['title'];
 	$content = $_POST['content'];
 	$aid = $_POST['aid'];
-	$result=update_article($dbconn, $title, $content, $aid);
-	Header ("Location: /");
+	if($_SESSION['userrole'] == "admin") {
+		$result=update_article($dbconn, $title, $content, $aid);
+	}
+    elseif (($_SESSION['userrole'] == "user") && (checkauthor($dbconn,$aid) == $_SESSION['username'])){
+        //check if author is same user
+        $result=update_article($dbconn, $title, $content, $aid);
+    }
+    else {
+        error_log("a student user tried editing not owned article: ". $_SESSION['username'], 3, "/var/tmp/php-assign2-errors.log");
+        error_log(" The time is " . date("Y-m-d h:i:sa").PHP_EOL, 3, "/var/tmp/php-assign2-errors.log");
+        header("Location: /logout.php");
+    	//someone messed with sessions
+        exit;
+	}
+	header("Location: /");
+	exit;
 }
 ?>
 
